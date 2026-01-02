@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cactus+Classical+Serif&family=Cardo:ital,wght@0,400;0,700;1,400&family=Corinthia:wght@400;700&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Italianno&family=M+PLUS+Rounded+1c:wght@100;300;400;500&family=Noto+Serif+TC:wght@200..900&display=swap');
+
+/* 通用設定 */
+* { box-sizing: border-box; }
+body, h1, h2, h3, h4, p { margin: 0; 
+}
+
+/* 背景 */
+body {
+    background-image: url('image/background.jpg');
+    background-repeat: repeat; /* 背景圖片重複鋪滿 */
+}
+
+/* 超連結 */
+a {
+    text-decoration: none; /* 移除底線 */
+}
+
+/* 一般圖片 */
+img {
+    width: 100%; /* 寬度撐滿 */
+    display: block;
+}
+
+/* Header */
+.wrap-header {
+    position: sticky; /* 選單在捲動頁面時會固定在最上方 */
+    top: 0;
+    margin: 0 auto; 
+    width: 100%;
+    background-color: #181323;
+    z-index: 999;
+    box-shadow: 0 0 20px 0 rgba(178, 255, 208, 0.2), 
+                0 0 40px 0 rgba(0, 255, 255, 0.1); 
+}
+header {
+    max-width: 1280px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;/*垂直居中 */
+    /* flex-direction: row 橫向排列 */
+    /* justify-content	水平決定元素要靠左、靠右、居中還是分散。 */
+    justify-content: space-between; /*首尾貼齊邊緣，中間平均分配 */
+    padding: 0 20px;
+    letter-spacing: 2px; /* 字距 */
+    
+}
+header .logo a {
+    display: block;
+    width: 96px;
+    height: 19px;
+    background-image: url('image/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* 確保圖片適應尺寸 */
+    text-indent: -9999px;
+    overflow: hidden;
+}
+header ul {
+    list-style: none; /*項目符號去除 */
+    display: flex;
+    gap: 15px;
+}
+header ul a {
+    color: #c0ffbd;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 65px;
+    background-color: #3a319d;
+    transition: 0.3s;    
+}
+header ul a:hover {
+    color: #3a319d;
+    background-color: rgb(192, 255, 189);
+}
+
+/* 加入音樂Aurora Drift */
+.mini-player {
+    height: 30px;        
+    width: 150px;     
+    filter: invert(90%) hue-rotate(100deg) brightness(1.2); 
+    /* invert(90%)：把顏色反轉（黑變白、白變黑）。 */
+    /* hue-rotate(100deg)：旋轉色相。 */
+    /* brightness(1.2)：亮度調高 20%*/
+    opacity: 0.6;      
+    transition: 0.3s;
+}
+
+.mini-player:hover {
+    opacity: 1;        
+}
+
+/* Banner */
+/* 輪播圖外框 */
+.wrap-content {
+    position: relative;/*main文字區塊絕對定位，不影響後面的文字排版 */
+    max-width: 1280px;
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(178, 255, 208, 0.2), 
+                0 0 40px 0 rgba(0, 255, 255, 0.1); 
+}
+
+/* 圖片滑動軌道 */
+.image-track {
+    display: flex;
+/* 過渡屬性:動作包括旋轉 (rotate)、縮放 (scale)、位移 (translate)。*/
+    width: 300%; /* 若有三張圖，設為 300% */
+    transition: transform 0.8s ease-in-out;/*平滑效果 */   
+/*.card:hover { transform: scale(1.2)} ; 當滑鼠滑入時，觸發0.8*1.2倍縮放的語法 */
+}
+.image-track img {
+    max-width: 1280px;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;/* 填滿空間：圖片會自動縮放 */
+    flex-shrink: 0; /*拒絕變形 */
+}
+main {
+    position: absolute; /* 將文字強制蓋在圖片上方 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    /* 原本top: 0; width: 100%; height: 100%; *//* 改用 50% 配合 transform 置中更精準 */
+    width: 90%; height: 100%;
+    z-index: 10;
+    text-align: center;
+    padding-top: 35px;
+    pointer-events: none; /* 讓元素變成透明的幽靈的語法 */
+    color: #ffffffdc;
+    letter-spacing: 2px; /* 字距 */
+    
+}
+main h2 {
+    font-family: "Corinthia", cursive; 
+    font-size: 80px;
+    text-shadow:0 0 10px #336a48b6;
+    color: #ffffffdc;
+}
+main h1 { 
+    font-family: "Noto Serif TC", serif; 
+    font-size: 104px;
+    text-shadow:0 0 10px #336a48b6;
+    color: #ffffffdc;
+    margin: -30px 0 0px 0; 
+    letter-spacing: 5px; /* 字距 */
+}
+main h3 { 
+    font-family: "Noto Serif TC", serif; 
+    font-size: 38px; 
+    text-shadow:0 0 10px #336a48b6;
+    color: #ffffffdc;
+}
+
+/* 輪播點點 */
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; 
+    gap: 12px; 
+    z-index: 20;
+}
+.dot { 
+    width: 8px; 
+    height: 8px; 
+    background: rgba(255,255,255,0.3); 
+    border-radius: 50%; 
+    cursor: pointer;/* 可點擊 */
+    /* cursor: crosshair變十字、cursor: grab變手掌、cursor: wait變漏斗 */
+ }
+.dot.active { 
+    width: 24px; 
+    border-radius: 4px; 
+    background: #b2ffd0; 
+}
+
+/* 意境文字 */
+.intro-text-section {
+    max-width: 1280px;
+    width: 100%;            
+    margin: 0 auto;          
+    padding: 60px 0 60px 0; 
+    background-color: #181323; 
+    text-align: center;
+    cursor: crosshair;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(178, 255, 208, 0.1); 
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* opacity: 0完全透明、0.5半透明、1完全不透明 */
+
+/* 英文藝術字 */
+.quote-en { 
+    font-family: "Corinthia", cursive; 
+    font-size: 48px; 
+    color: #b2ffd0; 
+    text-shadow: 0 0 10px rgba(178,255,208,0.5),
+                 0 0 20px rgba(0,255,255,0.2); 
+}
+/* 漸層分隔線 */
+.divider { 
+    width: 60px; 
+    height: 1px; 
+    background: linear-gradient(90deg, transparent, #b2ffd0, transparent);
+     /* 中間亮、兩邊消失的極細線 */ /* 方向(Degrees度數的縮寫)、起點顏色、中間顏色、終點顏色。 */
+    margin: 25px auto; 
+    animation: pulse 3s infinite ease-in-out; 
+    /* pulse:脈動、infinite: 無限循環 */
+}
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; width: 60px; }/* 起點與終點 */
+    50% { opacity: 1; width: 100px; }/* 中間點 */
+}
+/* 中文引言 */
+.quote-ch { 
+    font-family: "Noto Serif TC", serif; 
+    font-size: 20px; 
+    color: #e0e0e0; 
+    letter-spacing: 4px;/* 字距 */
+    line-height: 2; 
+ }
+.intro-text-section .cta-button {
+    margin-top: 35px;
+}
+.cta-button {
+    width: 140px;
+    height: 40px;
+    background-color:#b2ffd0;
+    color: #181323;
+    border-radius: 50px;
+    border: 0;
+    box-shadow: 0 0 15px rgba(178, 255, 208, 0.6);
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "M PLUS Rounded 1c", sans-serif;; 
+    font-weight: 800;
+    letter-spacing: 3px; /* 字距 */
+    display: inline-flex; /* 內容居中 */
+    align-items: center;
+    justify-content: center;
+}
+.cta-button:hover {
+    background-color: #ffffff;  /* 懸停變白色 */
+    box-shadow: 0 0 25px rgba(178, 255, 208, 0.9);
+    transform: scale(1.05);     /* 稍微放大 */
+}
+/* 小卡區塊 */
+section.cards-container {
+    max-width: 1280px;
+    width: 100%;         
+    margin: 0 auto;         
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+    padding: 60px 40px 60px 40px;
+    box-sizing: border-box;
+    background-color: #181323;
+}
+.card {
+    width: 295px;
+    background-color: #303030;
+    border-radius: 25px;
+    box-shadow: 0 0 6px #b2ffd0;
+}
+.card-title { 
+    font-family: "M PLUS Rounded 1c", sans-serif;; 
+    font-weight: 500;
+    color: #D8FFA1; 
+    font-size: 20px; 
+    padding: 15px 15px 5px;
+    letter-spacing: 1px;/* 字距 */ 
+}
+.card-intro { 
+    font-family: "M PLUS Rounded 1c", sans-serif;; 
+    font-weight: 300;
+    color: #fff; 
+    font-size: 14px; 
+    padding: 0 15px 20px; 
+    line-height: 1.6; 
+    letter-spacing: 1px;/* 字距 */
+}
+
+/* Footer */
+footer {
+    max-width: 1280px;
+    width: 100%;          
+    margin: 0 auto;          
+    background-color: #1c2121;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #607272;
+}
+footer .footer-links { 
+    margin-top: 10px; 
+}
+footer a { 
+    color: #607272; 
+    font-size: 14px; 
+    margin: 0 5px; }
+footer a:hover { 
+    color: #99eaea; 
+}

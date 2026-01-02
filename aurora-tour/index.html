@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Tour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap-header">
+        <header>
+            <h3 class="logo"><a href="index.htm">Aurora Tour</a></h3>
+            <nav>
+                <ul>
+                    <li><a href="">行程推薦</a></li>
+                    <li><a href="">極光攻略</a></li>
+                    <li><a href="">必玩體驗</a></li>
+                </ul>
+            </nav>
+            <!-- 加入音樂Aurora Drift  -->
+            <audio controls loop class="mini-player">
+            <source src="audio/aurora-drift.mp3" type="audio/mpeg">
+             </audio>
+        </header>
+    </div>
+<!-- 極光輪播圖（Aurora Slider） -->
+ <!-- 圖片滑動軌道 -->
+    <div class="wrap-content"id="slider">
+         <div class="image-track">
+            <img src="image/dancing-green-lights.jpg" alt="極光1">
+            <img src="image/boreal-night-winding-road.jpg" alt="極光2">
+            <img src="image/glacier-mountain-with-aurora-light.jpg" alt="極光3">
+        </div>
+
+        <main>
+            <h2>Aurora Borealis</h2>
+            <h1>極光之境16日</h1>
+            <h3>深度之旅｜冰島 × 芬蘭 × 挪威</h3>
+        </main>
+ <!-- 輪播點點 -->
+        <div class="carousel-dots">
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+        </div>
+    </div>
+<!-- 意境文字 -->
+    <div class="intro-text-section">
+         <!-- 英文藝術字 -->
+        <p class="quote-en">"Under the dancing lights, find the soul of the North."</p>
+         <!-- 漸層分隔線 -->
+        <div class="divider"></div>
+        <!-- 中文引言 -->
+        <p class="quote-ch">在流動的極光下，遇見北歐最純淨的靈魂。<br>跨越北極圈，譜寫一場關於光影與冰雪的詩篇。</p>
+        <button class="cta-button">立即下單</button>
+    </div>
+<!-- 小卡區塊 -->
+    <section class="cards-container">
+        <div class="card">
+        <img src="image/aurora-glass-Igloo.jpg" alt="" class="card">
+            <div class="card-catain">
+                <h3 class="card-title">極光屋 Aurora Glass Igloo</h3>
+                <p class="card-intro">冰屋是將舒適溫暖的小木屋與舉世聞名的玻璃屋相結合,設有私人桑拿浴室、壁爐、小廚房跟玻璃屋頂的臥室,小木屋是由拉普蘭獨特的kelo松木所製成的,您可以在專屬空間欣賞極光和四周迷人美景。</p>
+            </div>
+    </div>
+    <div class="card">
+        <img src="image/icebreaker-cruise.jpg" alt="" class="card">
+         <div class="card-catain">
+            <h3 class="card-title">破冰船 Icebreaker Cruise</h3>
+            <p class="card-intro">全球只有芬蘭一家獨有，首推凱米破冰船。「三寶號」(SAMPO)，該船長75米，重3540頓的破冰船，是全球現在唯一的觀光破冰船，至今載客已有四十多年歷史。破冰船前進時，其重量壓向厚達兩米的冰層，「圓刀」(船底圓刀型設計)便順勢將它割開。</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="image/santa-claus-village.jpg" alt="" class="card">
+        <div class="card-catain">
+            <h3 class="card-title">聖誕老人村  Santa's Village</h3>
+            <p class="card-intro">聖誕老人村位於北極圈分界線上，你能親自拜訪慈祥的聖誕老人、與他合影，並在官方郵局寄出蓋有北極郵戳的信件。地底的聖誕公園更讓人感受精靈世界的奇妙。整個村莊洋溢溫馨聖誕氛圍，讓大人小孩都沉浸於童話般的節慶樂趣中。</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="image/dog-sledding.jpg" alt="" class="card">
+        <div class="card-catain">
+            <h3 class="card-title">狗拉雪橇 Dog Sledding</h3>
+            <p class="card-intro">體驗薩米人傳統雪地交通工具~~哈士奇雪橇！強壯的哈士奇曾助探險家征服北極，如今帶領遊客馳騁冰原，被稱為「拉普蘭忠心朋友」。牠們能在厚雪中高速前進，閒時又親人可愛。部分行程還可參觀雪犬莊園，與活潑小狗互動拍照，樂趣滿滿。</p>
+        </div>
+    </div>
+        </div>
+    </section>
+<!-- Footer -->
+    <footer>
+        <p>Copyright © 2025 極光旅人 Aurora Explorer.</p>
+        <div class="footer-links">
+            <a href="Copyright & Usage.htm">Copyright & Usage</a> |
+            <a href="">About</a> |
+            <a href="">Privacy Policy</a> |
+            <a href="">Accessibility</a> |
+            <a href="">Site Map</a>
+        </div>
+    </footer>
+
+    <script>
+        const track = document.querySelector('.image-track');
+        const dots = document.querySelectorAll('.dot');
+
+        function currentSlide(index) {
+            track.style.transform = `translateX(-${index * 1280}px)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % dots.length;
+            currentSlide(currentIndex);
+        }, 5000);
+    </script>
+
+<div class="music-toggle-wrapper">
+    <button id="musicToggle" class="music-icon-btn">
+        <span id="musicStatus">MUSIC OFF</span>
+        <div class="music-bars">
+            <span></span><span></span><span></span>
+        </div>
+    </button>
+</div>
+</body>
+</html>
